@@ -1,12 +1,15 @@
 import React from 'react';
 
-const BookList = (props) => {
+const BookList = ({ books, onRemoveBook }) => {
   return (
     <div>
       <h3>Book List</h3>
       <ul>
-        {props.books.map((book, index) => (
-          <li key={index}>{book.title} by {book.author}</li>
+        {books.map((book, index) => (
+          <li key={index}>
+            {book.title} by {book.author}
+            <button onClick={() => onRemoveBook(index)}>X</button>
+          </li>
         ))}
       </ul>
     </div>

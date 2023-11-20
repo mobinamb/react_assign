@@ -16,11 +16,17 @@ function App() {
     setBooks([...books, newBook]);
   };
 
+
+  const removeBook = (index) => {
+    const newBooks = books.filter((_, i) => i !== index);
+    setBooks(newBooks);
+  };
+
   return (
     <div className="App">
       <header className="App-header">
         <AddBookForm addBook={addBook} />
-        <BookList books={books} />
+        <BookList books={books} onRemoveBook={removeBook} />
       </header>
     </div>
   );
