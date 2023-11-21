@@ -1,0 +1,94 @@
+/* Body Styles for Full-Screen Background */
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Full-Screen Background Image */
+  body {
+    background-image: url('https://i.etsystatic.com/11810216/r/il/9ad808/3025384484/il_570xN.3025384484_6jy5.jpg'); /* Add your bookshelf image URL here */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  
+  /* General App Styles */
+  .App {
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8); /* Optional: for better readability of content */
+  }
+  
+  .App-header {
+    background-color: rgba(40, 44, 52, 0.85); /* Semi-transparent background for readability */
+    padding: 20px;
+    color: white;
+    border-radius: 10px;
+    margin: auto;
+    width: 80%; /* Adjust width as needed */
+    /* Align content at the top */
+    margin-top: 20px;
+  }
+  
+  /* Book List Styles */
+  ul {
+    list-style-type: none;
+    padding: 0;
+    max-width: 600px; /* Decrease the width of the book list */
+    margin: auto;
+  }
+  
+  li {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #333; /* Text color */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Add a subtle shadow */
+  }
+  
+  li button {
+    background-color: #ff4d4f;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  li button:hover {
+    background-color: #ff7875;
+  }
+  
+  /* Form Styles */
+  form {
+    margin-top: 20px;
+  }
+  
+  input {
+    padding: 10px;
+    margin-right: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+  }
+  
+  button {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+  
