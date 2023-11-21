@@ -6,10 +6,12 @@ const BookList = ({ books, onRemoveBook }) => {
       <h3>Book List</h3>
       <ul>
         {books.map((book, index) => (
-          <li key={index}>
-            {book.title} by {book.author}
-            <button onClick={() => onRemoveBook(index)}>X</button>
-          </li>
+          book.title && book.author && (
+            <li key={index}>
+              {book.title} by {book.author}
+              <button onClick={() => onRemoveBook(book.id)}>X</button>
+            </li>
+          )
         ))}
       </ul>
     </div>

@@ -1,26 +1,43 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import BookList from './BookList';
 import AddBookForm from './AddBookForm'; // You will create this component in the next step
 
+
+const apiBaseUrl = 'https://654166c1f0b8287df1fe51c2.mockapi.io/books'
 function App() {
-  // Initialize state with an empty array or a few sample books
-  const [books, setBooks] = useState([
-    { title: 'Squire', author: 'Nadia Shammas' },
-    { title: 'Sisters of the Snake', author: 'Sasha Nanua' },
-    { title: 'Beyond the End of the World', author: 'Amie Kaufman' }
+  const [books, setBooks] = useState([]);
 
-  ]);
+  // Fetch books
+  useEffect(() => {
+    fetch(apiBaseUrl)
+      .then(response => response.json())
+      .then(data => setBooks(data));
+  }, []);
 
-  // Function to add a new book
+  // Add book
   const addBook = (newBook) => {
-    setBooks([...books, newBook]);
+    fetch(apiBaseUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(newBook),
+    }).then(response => response.json())
+    .then(newBook => {
+      setBooks([...books, newBook]);
+    });
   };
 
-
-  const removeBook = (index) => {
-    const newBooks = books.filter((_, i) => i !== index);
-    setBooks(newBooks);
+  // Remove book
+  const removeBook = (id) => {
+    fetch(`${apiBaseUrl}/${id}`, { method: 'DELETE' })
+      .then(() => {
+        // Remove the book from the local state
+        const updatedBooks = books.filter(book => book.id !== id);
+        setBooks(updatedBooks);
+      });
   };
+  
 
   return (
     <div className="App">
